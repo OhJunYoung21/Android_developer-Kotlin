@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.greetingcard'
+    compileSdk 32
+
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+
+    defaultConfig {
+        applicationId "com.example.greetingcard"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.compose.ui:ui:1.4.0-alpha03'
+    // Tooling support (Previews, etc.)
+    implementation 'androidx.compose.ui:ui-tooling:1.4.0-alpha03'
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation 'androidx.compose.foundation:foundation:1.4.0-alpha03'
+    // Material Design
+    implementation 'androidx.compose.material:material:1.4.0-alpha03'
+    // Material design icons
+    implementation 'androidx.compose.material:material-icons-core:1.4.0-alpha03'
+    implementation 'androidx.compose.material:material-icons-extended:1.4.0-alpha03'
+    // Integration with activities
+    implementation 'androidx.activity:activity-compose:1.7.0-alpha02'
+    // Integration with ViewModels
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha03'
+    // Integration with observables
+    implementation 'androidx.compose.runtime:runtime-livedata:1.4.0-alpha03'
+    implementation 'androidx.compose.runtime:runtime-rxjava2:1.4.0-alpha03'
+
+    // UI Tests
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.4.0-alpha03'
+}
