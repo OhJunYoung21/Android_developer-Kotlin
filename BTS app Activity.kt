@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
 
         image2.setOnClickListener{
             Toast.makeText(this,"2번 클릭 완료",Toast.LENGTH_LONG).show()
+
+            val intent = Intent(this, MainActivity2::class.java)
+            //매개변수에 어디로 인동할 것인지를 알려줍니다. BTS_1_Activity 로 이동하기로 하였습니다.
+            startActivity(intent)
         }
 
         val image3 = findViewById<ImageView>(R.id.img_3)
