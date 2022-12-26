@@ -10,63 +10,76 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-
 
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val image1 = binding.dice1
         val image2 = binding.dice2
 
-        binding.startbtn.setOnClickListener{
+        binding.startbtn.setOnClickListener {
 
-            var toast1 = Toast.makeText(this,"game start",Toast.LENGTH_SHORT)
+            var toast1 = Toast.makeText(this, "game start", Toast.LENGTH_SHORT)
 
-            toast1.setGravity(0,0,0)
+            toast1.setGravity(0, 0, 0)
 
             toast1.show()
 
 
-            val n_1 = Random.nextInt(1,6)
-            val n_2 = Random.nextInt(1,6)
+            val n_1 = Random.nextInt(1, 6)
+            val n_2 = Random.nextInt(1, 6)
 
-            if (n_1 == 1) {
-                image1.setImageResource(R.drawable.dice_1)
-            } else if (n_1 == 2) {
-                image1.setImageResource(R.drawable.dice_2)
-            }else if (n_1 == 3) {
-                image1.setImageResource(R.drawable.dice_3)
-            }else if (n_1 == 4) {
-                image1.setImageResource(R.drawable.dice_4)
-            }else if (n_1 == 5) {
-                image1.setImageResource(R.drawable.dice_5)
-            }else if (n_1 == 6) {
-                image1.setImageResource(R.drawable.dice_6)
+            when (n_1) {
+                n_1 -> 1 {
+                    image1.setImageResource(R.drawable.dice_1)
+                }
+                n_1 -> 2 {
+                    image1.setImageResource(R.drawable.dice_2)
+                }
+                n_1 -> 3 {
+                    image1.setImageResource(R.drawable.dice_3)
+                }
+                n_1 -> 4 {
+                    image1.setImageResource(R.drawable.dice_4)
+                }
+                n_1 -> 5{
+                    image1.setImageResource(R.drawable.dice_5)
+                }
+                n_1 -> 6{
+                    image1.setImageResource(R.drawable.dice_6)
+                }
             }
 
 
-            if (n_2 == 1) {
-                image2.setImageResource(R.drawable.dice_1)
-            } else if (n_2 == 2) {
-                image2.setImageResource(R.drawable.dice_2)
-            }else if (n_2 == 3) {
-                image2.setImageResource(R.drawable.dice_3)
-            }else if (n_2 == 4) {
-                image2.setImageResource(R.drawable.dice_4)
-            }else if (n_2 == 5) {
-                image2.setImageResource(R.drawable.dice_5)
-            }else if (n_2 == 6) {
-                image2.setImageResource(R.drawable.dice_6)
+            when (n_2) {
+                n_2 -> 1 {
+                    image1.setImageResource(R.drawable.dice_1)
+                }
+                n_2 -> 2 {
+                    image1.setImageResource(R.drawable.dice_2)
+                }
+                n_2 -> 3 {
+                    image1.setImageResource(R.drawable.dice_3)
+                }
+                n_2 -> 4 {
+                    image1.setImageResource(R.drawable.dice_4)
+                }
+                n_2 -> 5{
+                    image1.setImageResource(R.drawable.dice_5)
+                }
+                n_2 -> 6{
+                    image1.setImageResource(R.drawable.dice_6)
+                }
             }
 
             if (n_1 == 6 || n_2 == 6) {
-                var t2 = Toast.makeText(this,"the end",Toast.LENGTH_SHORT)
-                t2.setGravity(0,0,0)
+                var t2 = Toast.makeText(this, "the end", Toast.LENGTH_SHORT)
+                t2.setGravity(0, 0, 0)
 
             }
 
