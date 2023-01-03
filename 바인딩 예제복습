@@ -1,0 +1,31 @@
+package com.example.fire
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.setContentView
+import com.example.fire.databinding.ActivityMainBinding
+import com.google.android.gms.common.util.DataUtils
+
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.btn1.setOnClickListener {
+            displayGreeting()
+        }
+
+
+    }
+
+    private fun displayGreeting() {
+        binding.apply {
+            greet.text = "Hello! " + edit1.text
+        }
+    }
+}
