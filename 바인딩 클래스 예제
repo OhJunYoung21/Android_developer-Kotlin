@@ -1,0 +1,38 @@
+package com.example.fire
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.setContentView
+import com.example.fire.databinding.ActivityMainBinding
+import com.google.android.gms.common.util.DataUtils
+
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.company = getCompany()   //.xml 있는 company 가져와서 바로 사용합니다.
+
+        binding.btn1.setOnClickListener {
+            displayGreeting()
+        }
+
+
+    }
+
+    private fun displayGreeting() {
+        binding.apply {
+            greet.text = "Hello! " + edit1.text
+        }
+    }
+
+    private fun getCompany(): company {   //company 클래스에 있는 요소들을 상속받겠다는 의미입니다.
+        return company(1, "abc", "realmadrid")
+    }
+}
